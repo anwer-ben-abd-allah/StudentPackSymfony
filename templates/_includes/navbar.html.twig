@@ -1,30 +1,28 @@
-{# le navbar ici pour tous les fichiers #}
+{# navbar.html.twig - Version Symfony avec routes nommées #}
 
-{# Récupérer le nom du fichier courant depuis l'URL #}
-{% set current_uri = app.request.requestUri %}
-{% set current_file = current_uri|split('/')|last %}
-
-
+{# Récupérer la route courante #}
+{% set current_route = app.request.attributes.get('_route') %}
 
 <!-- Navbar -->
 <nav class="navbar">
-    <a class="brand" href="#">
+    <a class="brand" href="{{ path('app_home') }}">
         <div class="brand-dot"></div>
         Student Pack
     </a>
     <ul class="nav-links">
-        <li><a href="../index.html">🏠 Accueil</a></li>
-        <li><a href="../Time Table/timetable.php" class="active">📅 Emploi du temps</a></li>
-        <li><a href="../Tasks/tasks.html">✅ Tâches</a></li>
-        <li><a href="../Upcoming Exams/exams.html">📝 Examens</a></li>
-        <li><a href="../Notes/note.html">📓 Notes</a></li>
-        <li><a href="../Pomodoro/pomodoro.html">⏱ Pomodoro</a></li>
-        <li><a href="../dropout_risk_detector/dropout.html">🤖 Dropout Detector</a></li>
-        <li><a href="../Authentification/authentification.php" id="loginLink" class="navbar-right">🔑 S'identifier</a></li>
+        <li><a href="{{ path('app_home') }}" {{ current_route == 'app_home' ? 'class="active"' : '' }}>🏠 Accueil</a></li>
+        {#
+        <li><a href="{{ path('timetable') }}" {{ current_route == 'timetable' ? 'class="active"' : '' }}>📅 Emploi du temps</a></li>
+        <li><a href="{{ path('tasks') }}" {{ current_route == 'tasks' ? 'class="active"' : '' }}>✅ Tâches</a></li>
+        <li><a href="{{ path('exams') }}" {{ current_route == 'exams' ? 'class="active"' : '' }}>📝 Examens</a></li>
+        <li><a href="{{ path('notes') }}" {{ current_route == 'notes' ? 'class="active"' : '' }}>📓 Notes</a></li>
+        <li><a href="{{ path('pomodoro') }}" {{ current_route == 'pomodoro' ? 'class="active"' : '' }}>⏱ Pomodoro</a></li>
+        <li><a href="{{ path('dropout') }}" {{ current_route == 'dropout' ? 'class="active"' : '' }}>🤖 Dropout Detector</a></li>
+        <li><a href="{{ path('login') }}" {{ current_route == 'login' ? 'class="active"' : '' }} id="loginLink">🔑 S'identifier</a></li>
+        #}    
     </ul>
     <!-- Shown by navbar_auth.js when logged in -->
     <button class="btn-logout" id="logoutBtn" style="display:none">
         ↩ Déconnexion
     </button>
 </nav>
-
