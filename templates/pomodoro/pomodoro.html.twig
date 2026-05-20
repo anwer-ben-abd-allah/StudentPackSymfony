@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pomodoro - StudentPack{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pomodoro.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="pomodoro">
+    <h2>Pomodoro Timer</h2>
+    <div class="timer">25:00</div>
+    <div class="buttons">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+</div>
+<p id="startParagraph" style="display:none;">Sorry, still under construction..</p>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/pomodoro.js') }}"></script>
+{% endblock %}

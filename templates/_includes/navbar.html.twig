@@ -11,12 +11,12 @@
     </a>
     <ul class="nav-links">
         <li><a href="{{ path('app_home') }}" {{ current_route == 'app_home' ? 'class="active"' : '' }}>🏠 Accueil</a></li>
+        <li><a href="{{ path('app_pomodoro') }}" {{ current_route == 'pomodoro' ? 'class="active"' : '' }}>⏱ Pomodoro</a></li>
         {#
         <li><a href="{{ path('timetable') }}" {{ current_route == 'timetable' ? 'class="active"' : '' }}>📅 Emploi du temps</a></li>
         <li><a href="{{ path('tasks') }}" {{ current_route == 'tasks' ? 'class="active"' : '' }}>✅ Tâches</a></li>
         <li><a href="{{ path('exams') }}" {{ current_route == 'exams' ? 'class="active"' : '' }}>📝 Examens</a></li>
         <li><a href="{{ path('notes') }}" {{ current_route == 'notes' ? 'class="active"' : '' }}>📓 Notes</a></li>
-        <li><a href="{{ path('pomodoro') }}" {{ current_route == 'pomodoro' ? 'class="active"' : '' }}>⏱ Pomodoro</a></li>
         <li><a href="{{ path('dropout') }}" {{ current_route == 'dropout' ? 'class="active"' : '' }}>🤖 Dropout Detector</a></li>
         <li><a href="{{ path('login') }}" {{ current_route == 'login' ? 'class="active"' : '' }} id="loginLink">🔑 S'identifier</a></li>
         #}    
