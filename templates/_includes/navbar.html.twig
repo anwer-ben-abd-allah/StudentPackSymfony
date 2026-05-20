@@ -1,0 +1,28 @@
+{# le navbar ici pour tous les fichiers #}
+
+{# Récupérer le nom du fichier courant depuis l'URL #}
+{% set current_uri = app.request.requestUri %}
+{% set current_file = current_uri|split('/')|last %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        Student Pack
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/index.php">🏠 Accueil</a></li>
+      <li><a href="/Time Table/timetable.php">📅 Emploi du temps</a></li>
+      <li><a href="/Tasks/tasks.php">✅ Tâches</a></li>
+      <li><a href="/Upcoming Exams/exams.php">📝 Examens</a></li>
+      <li><a href="/Notes/note.php">📓 Notes</a></li>
+      <li><a href="/Emails/emails.php">✉ Emails</a></li>
+      <li><a href="/Pomodoro/pomodoro.php">⏱ Pomodoro</a></li>
+      <li><a href="/dropout_risk_detector/dropout.php">🤖 Dropout Detector</a></li>
+      <li><a href="/Authentification/authentification.php" id="loginLink">🔑 S'identifier</a></li>
+    </ul>
+    <button class="btn btn-danger navbar-btn" id="logoutBtn" style="display:none">↩ Déconnexion</button>
+  </div>
+</nav>
+

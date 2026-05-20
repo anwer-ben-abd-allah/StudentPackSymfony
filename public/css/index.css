@@ -1,0 +1,97 @@
+        .student-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* photo université */
+        .uni-photo {
+            margin: 2rem 0 2rem 0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: lightgrey;
+            justify-items: center;
+
+        }
+        .uni-photo img {
+            width: 100px;
+            height: 100px;
+        }
+ 
+        /* grille des fonctionnalités (flexbox + fallback grid) */
+        .features-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 2rem 0 1.2rem 0;
+            font-family: 'Clash Display', sans-serif;
+            color: #0f2b3d;
+        }
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+            padding: 20px;
+        }
+        .feature-card {
+            flex: 1 1 280px;
+            background: lightslategrey;
+            border-radius: 20px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0.5rem 0 0.75rem 0;
+            font-family: 'Clash Display', sans-serif;
+            color: #1e3a5f;
+        }
+        .feature-card p {
+            color: #334155;
+            line-height: 1.45;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* petit ajustement responsive */
+        @media (max-width: 640px) {
+            .student-content {
+                padding: 1rem;
+            }
+            .features-title {
+                font-size: 1.6rem;
+            }
+        }
+
+/* footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    background-image: url("insat.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;   
+    color:black;
+    height:100%;
+
+}
+
+#welcomeEl {
+    text-align: center;
+}
+#welcomeP {
+    text-align: center;
+    color:black;
+    font-size: large;
+    border: 1px solid black;
+} */

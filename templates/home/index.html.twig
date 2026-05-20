@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% block title %}Student Pack{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }} 
+    
+    {# Custom fonts and stylesheets unique to this page #}
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    {# Symfony handles global elements like navbars via Twig components or includes #}
+
+    <div class="student-content">
+        <!-- Photo de l'université -->
+        <div class="uni-photo">
+            <img src="{{ asset('images/logo-transparent.png') }}" 
+                 alt="Campus universitaire - bâtiment historique et étudiants"
+                 class="img-responsive">
+        </div>
+
+        <!-- Titre des fonctionnalités -->
+        <h2 class="features-title">📦 Tous vos outils, réunis dans StudentPack</h2>
+        
+        <!-- Grille simple (flexbox) -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Emploi du temps</h3>
+                <p>Visualisez vos cours, TD et examens sur un planning hebdomadaire clair.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Tâches</h3>
+                <p>Listez vos devoirs, projets et révisions avec échéances.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Examens</h3>
+                <p>Centralisez le calendrier de vos partiels, dates de rendus et coefficients.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Notes</h3>
+                <p>Suivez vos moyennes par matière, visualisez votre progression.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✉️</div>
+                <h3>Emails</h3>
+                <p>Consultez les messages des enseignants et de l'administration.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🍅</div>
+                <h3>Pomodoro</h3>
+                <p>Activez le minuteur Pomodoro (25 min de travail / 5 min de pause).</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚠️</div>
+                <h3>Dropout Detector</h3>
+                <p>Analyse votre assiduité, vos notes et votre connexion.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {# Global auth script unique to your layout #}
+    <script src="{{ asset('js/navbar_auth.js') }}"></script>
+{% endblock %}
