@@ -18,12 +18,14 @@
             
             {%if not app.user %}
             <li><a href="{{ path('app_register') }}" {{ current_route == 'app_register' ? 'class="active"' : '' }} id="loginLink">🔑 S'identifier</a></li>
+            <li><a href="{{ path('app_logout') }}" {{ current_route == 'app_register' ? 'class="active"' : '' }} id="loginLink">🔑 Log in</a></li>
+
             {%endif%}
             
             
             {# Show logout button only if user IS logged in #}
             {% if app.user %}
-            <li><a href="{{ path('app_logout') }}" >Log Out</a></li>
+            <li><a href="{{ path('app_logout') }}" >🔑 Log out</a></li>
             {% endif %}
             {#
             <li><a href="{{ path('timetable') }}" {{ current_route == 'timetable' ? 'class="active"' : '' }}>📅 Emploi du temps</a></li>
