@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student Pack · Tâches{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tasks.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main class="tasks-page">
+        <section class="tasks-hero">
+            <span class="eyebrow">✅ Tâches</span>
+            <h1>Organisez vos devoirs et révisions</h1>
+            <p>Ajoutez des tâches, suivez vos priorités et terminez vos échéances à temps.</p>
+            <p style="margin-top:.6rem; color:#64748b; font-size:.95rem;">Demo mode: vous pouvez utiliser les tâches sans vous connecter. Les données non authentifiées sont stockées localement dans votre session.</p>
+        </section>
+
+        <section class="tasks-summary">
+            <div class="summary-card">
+                <span>Total</span>
+                <strong id="statTotal">0</strong>
+            </div>
+            <div class="summary-card">
+                <span>Complétées</span>
+                <strong id="statDone">0</strong>
+            </div>
+            <div class="summary-card">
+                <span>En retard</span>
+                <strong id="statOverdue">0</strong>
+            </div>
+            <div class="summary-card">
+                <span>À faire</span>
+                <strong id="statPending">0</strong>
+            </div>
+        </section>
+
+        <section class="tasks-toolbar">
+            <div class="toolbar-row">
+                <select id="filterStatus">
+                    <option value="all">Tous les statuts</option>
+                    <option value="todo">À faire</option>
+                    <option value="done">Complétées</option>
+                    <option value="overdue">En retard</option>
+                </select>
+                <select id="filterPriority">
+                    <option value="all">Toutes priorités</option>
+                    <option>Haute</option>
+                    <option>Moyenne</option>
+                    <option>Basse</option>
+                </select>
+                <input id="filterSearch" type="search" placeholder="Rechercher..." />
+            </div>
+        </section>
+
+        <section class="tasks-grid">
+            <div class="task-form-panel">
+                <div class="panel-header">
+                    <h2 id="formTitle">Nouvelle tâche</h2>
+                </div>
+                <form id="taskForm">
+                    <div class="field-group">
+                        <label for="taskTitle">Titre</label>
+                        <input id="taskTitle" name="title" type="text" placeholder="Entrer le titre de la tâche" required />
+                    </div>
+                    <div class="field-group">
+                        <label for="taskDescription">Description (facultatif)</label>
+                        <textarea id="taskDescription" name="description" placeholder="Notes, détails ou consignes"></textarea>
+                    </div>
+                    <div class="field-group">
+                        <label for="taskPriority">Priorité</label>
+                        <select id="taskPriority" name="priority">
+                            <option selected>Moyenne</option>
+                            <option>Haute</option>
+                            <option>Basse</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label for="taskDueDate">Date d’échéance</label>
+                        <input id="taskDueDate" name="due_date" type="date" />
+                    </div>
+                    <div class="field-group">
+                        <label for="taskDueTime">Heure (optionnel)</label>
+                        <input id="taskDueTime" name="due_time" type="time" />
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="cancelEdit" style="display:none;">Annuler</button>
+                        <button type="submit" id="submitButton">Ajouter</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="task-list-panel">
+                <div class="panel-header">
+                    <h2>Mes tâches</h2>
+                </div>
+                <div id="taskList" class="task-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/navbar_auth.js') }}"></script>
+    <script src="{{ asset('js/tasks.js') }}"></script>
+{% endblock %}
