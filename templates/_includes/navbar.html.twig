@@ -11,7 +11,8 @@
     </a>
     <ul class="nav-links">
         <li><a href="{{ path('app_home') }}" {{ current_route == 'app_home' ? 'class="active"' : '' }}>🏠 Accueil</a></li>
-        <li><a href="{{ path('app_pomodoro') }}" {{ current_route == 'pomodoro' ? 'class="active"' : '' }}>⏱ Pomodoro</a></li>
+        <li><a href="{{ path('upcoming_exams') }}" {{ current_route == 'upcoming_exams' ? 'class="active"' : '' }}>📝 Examens</a></li>
+        <li><a href="{{ path('app_pomodoro') }}" {{ current_route == 'app_pomodoro' ? 'class="active"' : '' }}>⏱ Pomodoro</a></li>
         {#
         <li><a href="{{ path('timetable') }}" {{ current_route == 'timetable' ? 'class="active"' : '' }}>📅 Emploi du temps</a></li>
         <li><a href="{{ path('tasks') }}" {{ current_route == 'tasks' ? 'class="active"' : '' }}>✅ Tâches</a></li>
