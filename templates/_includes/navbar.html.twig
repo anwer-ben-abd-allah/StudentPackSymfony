@@ -1,28 +1,34 @@
-{# navbar.html.twig - Version Symfony avec routes nommées #}
+    {# navbar.html.twig - Version Symfony avec routes nommées #}
 
-{# Récupérer la route courante #}
-{% set current_route = app.request.attributes.get('_route') %}
+    {# Récupérer la route courante #}
+    {% set current_route = app.request.attributes.get('_route') %}
 
-<!-- Navbar -->
-<nav class="navbar">
-    <a class="brand" href="{{ path('app_home') }}">
-        <div class="brand-dot"></div>
-        Student Pack
-    </a>
-    <ul class="nav-links">
-        <li><a href="{{ path('app_home') }}" {{ current_route == 'app_home' ? 'class="active"' : '' }}>🏠 Accueil</a></li>
-        <li><a href="{{ path('upcoming_exams') }}" {{ current_route == 'upcoming_exams' ? 'class="active"' : '' }}>📝 Examens</a></li>
-        <li><a href="{{ path('tasks') }}" {{ current_route == 'tasks' ? 'class="active"' : '' }}>✅ Tâches</a></li>
-        <li><a href="{{ path('app_pomodoro') }}" {{ current_route == 'app_pomodoro' ? 'class="active"' : '' }}>⏱ Pomodoro</a></li>
-        {#
-        <li><a href="{{ path('timetable') }}" {{ current_route == 'timetable' ? 'class="active"' : '' }}>📅 Emploi du temps</a></li>
-        <li><a href="{{ path('notes') }}" {{ current_route == 'notes' ? 'class="active"' : '' }}>📓 Notes</a></li>
-        <li><a href="{{ path('dropout') }}" {{ current_route == 'dropout' ? 'class="active"' : '' }}>🤖 Dropout Detector</a></li>
-        <li><a href="{{ path('login') }}" {{ current_route == 'login' ? 'class="active"' : '' }} id="loginLink">🔑 S'identifier</a></li>
-        #}
-    </ul>
-    <!-- Shown by navbar_auth.js when logged in -->
-    <button class="btn-logout" id="logoutBtn" style="display:none">
-        ↩ Déconnexion
-    </button>
-</nav>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="brand" href="{{ path('app_home') }}">
+            <div class="brand-dot"></div>
+            Student Pack
+        </a>
+        <ul class="nav-links">
+            <li><a href="{{ path('app_home') }}" {{ current_route == 'app_home' ? 'class="active"' : '' }}>🏠 Accueil</a></li>
+            <li><a href="{{ path('upcoming_exams') }}" {{ current_route == 'upcoming_exams' ? 'class="active"' : '' }}>📝 Examens</a></li>
+            <li><a href="{{ path('tasks') }}" {{ current_route == 'tasks' ? 'class="active"' : '' }}>✅ Tâches</a></li>
+            <li><a href="{{ path('app_pomodoro') }}" {{ current_route == 'app_pomodoro' ? 'class="active"' : '' }}>⏱ Pomodoro</a></li>
+            
+            
+            {%if not app.user %}
+            <li><a href="{{ path('app_register') }}" {{ current_route == 'app_register' ? 'class="active"' : '' }} id="loginLink">🔑 S'identifier</a></li>
+            {%endif%}
+            
+            
+            {# Show logout button only if user IS logged in #}
+            {% if app.user %}
+            <li><a href="{{ path('app_logout') }}" >Log Out</a></li>
+            {% endif %}
+            {#
+            <li><a href="{{ path('timetable') }}" {{ current_route == 'timetable' ? 'class="active"' : '' }}>📅 Emploi du temps</a></li>
+            <li><a href="{{ path('notes') }}" {{ current_route == 'notes' ? 'class="active"' : '' }}>📓 Notes</a></li>
+            <li><a href="{{ path('dropout') }}" {{ current_route == 'dropout' ? 'class="active"' : '' }}>🤖 Dropout Detector</a></li>
+            #}
+        </ul>
+    </nav>
